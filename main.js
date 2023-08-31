@@ -73,49 +73,74 @@
 // Which was the most common letter grade?
 // What was the average percentage grade in the class?
 
-let aGrades = {
-    score: 0,
-    actualGrade: "A"
-}
-let bGrades = {
-    score: 0,
-    actualGrade: "B"
-}
-let cGrades = {
-    score: 0,
-    actualGrade: "C"
-}
-let dGrades = {
-    score: 0,
-    actualGrade: "D"
-}
-let fGrades = {
-    score: 0,
-    actualGrade: "F"
-}
-
-let percentageGrades = 0
+// let aGrades = {
+//     score: 0,
+//     actualGrade: "A"
+// }
+// let bGrades = {
+//     score: 0,
+//     actualGrade: "B"
+// }
+// let cGrades = {
+//     score: 0,
+//     actualGrade: "C"
+// }
+// let dGrades = {
+//     score: 0,
+//     actualGrade: "D"
+// }
+// let fGrades = {
+//     score: 0,
+//     actualGrade: "F"
+// }
+let aGrades = 0;
+let bGrades = 0;
+let cGrades = 0;
+let dGrades = 0;
+let fGrades = 0;
+let mostCommonGrade = "";
+let mostCommonGradeCount = 0
 
 var grades = [92, 91, 75, 66, 52, 90, 83, 85, 64, 90, 72, 88, 77, 98, 100, 73, 92]
+let totalGradePoints = 0
 
 for(let taco = 0; taco < grades.length; taco++){
-
+    totalGradePoints += grades[taco]
 if(grades[taco] <= 69){
 console.log("You got an F")
-fGrades.score++
+fGrades++
 } else if(grades[taco] >= 70 && grades[taco] <= 76){
     console.log("You got a D")
-    dGrades.score++
+    dGrades++
 } else if(grades[taco] >= 77 && grades[taco] <= 84) {
     console.log("You got a C")
-    cGrades.score++
+    cGrades++
 } else if (grades[taco] >= 85 && grades[taco] <= 92){
     console.log("You got a B")
-    bGrades.score++
+    bGrades++
 } else if(grades[taco] >= 93 && grades[taco] <= 100){  
     console.log("You got an A")
-    aGrades.score++
+    aGrades++
 }
+}
+
+for(let i = 0; i < grades.length; i++){
+    if (mostCommonGradeCount < aGrades){
+        mostCommonGradeCount = aGrades
+        mostCommonGrade = "A"
+    } else if(mostCommonGradeCount < bGrades){
+        mostCommonGradeCount = bGrades
+        mostCommonGrade = "B"
+    } else if (mostCommonGradeCount < cGrades){
+        mostCommonGradeCount = cGrades
+        mostCommonGrade = "C"
+    } else if (mostCommonGradeCount < dGrades){
+        mostCommonGradeCount = dGrades
+        mostCommonGrade = "D"
+    } else if (mostCommonGradeCount < fGrades){
+        mostCommonGradeCount = fGrades
+        mostCommonGrade = "F"
+    }
 }
 
 let letterGrades = [aGrades, bGrades, cGrades, dGrades, fGrades]
@@ -123,12 +148,22 @@ let highScore = {
 score: 0,
 actualGrade: ""
 }
+
 for(let i = 0; i < letterGrades.length; i++){
+   
     if(letterGrades[i].score > highScore.score)
     {
         highScore = letterGrades[i]
     }
 }
-console.log(highScore)
+
+percentageGrades = totalGradePoints / grades.length
+
+// console.log(highScore)
+console.log(mostCommonGrade, mostCommonGradeCount, "Most common grade")
+console.log(percentageGrades, "This is an average of grades")
+console.log(`The average percent is ${Math.ceil(percentageGrades)}`)
 console.log(aGrades, "This is A grades")
 console.log(bGrades, "This is B Grades")
+
+
