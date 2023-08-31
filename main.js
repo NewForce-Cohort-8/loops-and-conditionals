@@ -15,7 +15,7 @@
 //     // console.log(string + " " + interestArray[i])
 //   }
 
-  //for loop conditional 
+//for loop conditional 
 //   Refactor your loop from the previous exercise. Pick one of your interests as your absolute favorite interest. Add a conditional to your loop to check if each interest in the array is your favorite. When the loop gets to your favorite interest, it should print "My absolute favorite interest is:" followed by the name of your interest. Any other interests can be printed the same way that they were in the previous exercise.
 
 //conditional
@@ -73,6 +73,9 @@
 // Which was the most common letter grade?
 // What was the average percentage grade in the class?
 
+// *** I did this in two parts Try A and Try B:
+
+// **** grades as objects! Try A
 // let aGrades = {
 //     score: 0,
 //     actualGrade: "A"
@@ -93,6 +96,8 @@
 //     score: 0,
 //     actualGrade: "F"
 // }
+
+//grades as variables Try B
 let aGrades = 0;
 let bGrades = 0;
 let cGrades = 0;
@@ -100,63 +105,81 @@ let dGrades = 0;
 let fGrades = 0;
 let mostCommonGrade = "";
 let mostCommonGradeCount = 0
-
-var grades = [92, 91, 75, 66, 52, 90, 83, 85, 64, 90, 72, 88, 77, 98, 100, 73, 92]
 let totalGradePoints = 0
 
-for(let taco = 0; taco < grades.length; taco++){
+var grades = [92, 91, 75, 66, 52, 90, 83, 85, 64, 90, 72, 88, 77, 98, 100, 73, 92]
+
+for (let taco = 0; taco < grades.length; taco++) {
     totalGradePoints += grades[taco]
-if(grades[taco] <= 69){
-console.log("You got an F")
-fGrades++
-} else if(grades[taco] >= 70 && grades[taco] <= 76){
-    console.log("You got a D")
-    dGrades++
-} else if(grades[taco] >= 77 && grades[taco] <= 84) {
-    console.log("You got a C")
-    cGrades++
-} else if (grades[taco] >= 85 && grades[taco] <= 92){
-    console.log("You got a B")
-    bGrades++
-} else if(grades[taco] >= 93 && grades[taco] <= 100){  
-    console.log("You got an A")
-    aGrades++
-}
+    if (grades[taco] <= 69) {
+        console.log("You got an F")
+        fGrades++
+        //Try A:
+        // fGrades.score++
+
+    } else if (grades[taco] >= 70 && grades[taco] <= 76) {
+        console.log("You got a D")
+        dGrades++
+        //Try A:
+        // dGrades.score++
+
+    } else if (grades[taco] >= 77 && grades[taco] <= 84) {
+        console.log("You got a C")
+        cGrades++
+        //Try A:
+        //cGrades.score++
+
+    } else if (grades[taco] >= 85 && grades[taco] <= 92) {
+        console.log("You got a B")
+        bGrades++
+        //Try A:
+        //bGrades.score++
+
+    } else if (grades[taco] >= 93 && grades[taco] <= 100) {
+        console.log("You got an A")
+        aGrades++
+        //Try A:
+        //aGrades.score++
+    }
 }
 
-for(let i = 0; i < grades.length; i++){
-    if (mostCommonGradeCount < aGrades){
+//Try B:
+for (let i = 0; i < grades.length; i++) {
+    if (mostCommonGradeCount < aGrades) {
         mostCommonGradeCount = aGrades
         mostCommonGrade = "A"
-    } else if(mostCommonGradeCount < bGrades){
+    } else if (mostCommonGradeCount < bGrades) {
         mostCommonGradeCount = bGrades
         mostCommonGrade = "B"
-    } else if (mostCommonGradeCount < cGrades){
+    } else if (mostCommonGradeCount < cGrades) {
         mostCommonGradeCount = cGrades
         mostCommonGrade = "C"
-    } else if (mostCommonGradeCount < dGrades){
+    } else if (mostCommonGradeCount < dGrades) {
         mostCommonGradeCount = dGrades
         mostCommonGrade = "D"
-    } else if (mostCommonGradeCount < fGrades){
+    } else if (mostCommonGradeCount < fGrades) {
         mostCommonGradeCount = fGrades
         mostCommonGrade = "F"
     }
 }
 
+//Try A
 let letterGrades = [aGrades, bGrades, cGrades, dGrades, fGrades]
 let highScore = {
-score: 0,
-actualGrade: ""
+    score: 0,
+    actualGrade: ""
 }
 
-for(let i = 0; i < letterGrades.length; i++){
-   
-    if(letterGrades[i].score > highScore.score)
-    {
+//Try A
+for (let i = 0; i < letterGrades.length; i++) {
+
+    if (letterGrades[i].score > highScore.score) {
         highScore = letterGrades[i]
     }
 }
 
+
+//Try B
 percentageGrades = totalGradePoints / grades.length
 
 // console.log(highScore)
